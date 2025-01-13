@@ -25,6 +25,6 @@ urlpatterns = [
     path('', include('task4.urls', namespace='task4')),
     path('task3', include('task3.urls', namespace='task3')),
     path('lesson2/', include('task2.urls', namespace='task2')),
-
-
+    path('django_sign_up/', include('task5.urls', namespace='task5')),
+    path('django/', include('task5.urls', namespace='task5')),
 ]
