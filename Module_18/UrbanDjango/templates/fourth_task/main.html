@@ -1,0 +1,7 @@
+{% extends "fourth_task/menu.html" %}
+
+{% block pagename%} <center><h1>{{title}}</h1> </center>{% endblock %}
+
+    {% include 'fourth_task/menu.html' %}
+{%block content %} {{ block.super}} {% endblock %}
+
