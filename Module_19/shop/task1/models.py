@@ -6,7 +6,7 @@ from django.utils import timezone
 class Buyer(models.Model):
     name = models.CharField(max_length=30)
     balance = models.DecimalField(max_digits=12, decimal_places=2)
-    age = models.IntegerField
+    age = models.IntegerField(default=1)
 
     def __str__(self):
         return self.name
