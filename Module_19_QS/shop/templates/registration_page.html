@@ -13,21 +13,59 @@
     {% endif %}
 
 <form method="post">
-    {% csrf_token %}
-    <label for = "username">Имя пользователя:</label>
-    <input type="text" id="username" name="username" maxlength="30" required>
+        {% csrf_token %}
 
-    <label for = "password">Введите пароль:</label>
-    <input type="password" id="password" name="password" minlength="8" >
+        {% if form.non_field_errors %}
+            <div style="color: red;">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
 
-    <label for = "repeat_password">Повторите пароль:</label>
-    <input type="password" id="repeat_password" name="repeat_password" minlength="8" required>
+        <div>
+            <b>{{ form.username.label_tag }}</b><br>
+            {{ form.username }}<br>
+            {% if form.username.errors %}
+                <div style="color: red;">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+        </div>
 
-    <label for = "age">Введите свой возраст:</label>
-    <input type="number" id="age" name="age" max="150" maxlength="3" min="1">
+        <div>
+            <b>{{ form.password.label_tag }}</b><br>
+            {{ form.password }}<br>
+            {% if form.password.errors %}
+                <div style="color: red;">
+                    {{ form.password.errors }}
+                </div>
+            {% endif %}
+        </div>
 
-    <button type="submit">Регистрация</button>
-</form>
+        <div>
+           <b>{{ form.repeat_password.label_tag }}</b><br>
+            {{ form.repeat_password }}<br>
+            {% if form.repeat_password.errors %}
+                <div style="color: red;">
+                    {{ form.repeat_password.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <b>{{ form.age.label_tag }}</b><br>
+            {{ form.age }}<br>
+            {% if form.age.errors %}
+                <div style="color: red;">
+                    {{ form.age.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Кнопка отправки формы -->
+        <div>
+            <button type="submit">Зарегистрироваться</button>
+        </div>
+    </form>
 
 {% if info.success %}
  <center><p style="color: green;"><b>{{ info.success }}</b></p></center>
