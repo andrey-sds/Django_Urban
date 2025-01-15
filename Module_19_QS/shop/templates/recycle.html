@@ -1,0 +1,8 @@
+{% extends "menu.html" %}
+
+{% block pagename%} {{block.super}}<center><h1>{{title}}</h1></center> {% endblock %}
+
+    {% include 'menu.html' %}
+{% block content %} <h1>Извините, ваша корзина пуста.</h1>
+{{ block.super}}
+ {% endblock %}
