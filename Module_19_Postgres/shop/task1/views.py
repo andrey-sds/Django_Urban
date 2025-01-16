@@ -16,13 +16,14 @@ def main(request):
     shop = '/shop'
     recycle = '/recycle'
     news = 'platform/news'
-
+    contacts = 'contacts'
     context = {
         'title': title,
         'main_page': main_page,
         'shop': shop,
         'recycle': recycle,
         'news': news,
+        'contacts': contacts,
 
     }
     return render(request, 'main.html', context)
@@ -37,6 +38,7 @@ def shop(request):
         'shop': reverse('task1:shop'),
         'recycle': reverse('task1:recycle'),
         'games': games,
+        'contacts': reverse('task1:contacts'),
 
     }
     return render(request, 'shop.html', context)
@@ -49,6 +51,7 @@ def recycle(request):
         'main_page': reverse('task1:main'),
         'shop': reverse('task1:shop'),
         'recycle': reverse('task1:recycle'),
+        'contacts': reverse('task1:contacts'),
 
     }
     return render(request, 'recycle.html', context)
@@ -64,6 +67,7 @@ def news_list(request):
         'shop': reverse('task1:shop'),
         'recycle': reverse('task1:recycle'),
         'news': news,
+        'contacts': reverse('task1:contacts'),
     }
     return render(request, 'news.html', context)
 
@@ -101,3 +105,16 @@ def sign_up_by_django(request):
     }
 
     return render(request, 'registration_page.html', context)
+
+
+def contacts(request):
+    contact = Contacts.objects.all()
+    context = {
+        'main_page': reverse('task1:main'),
+        'shop': reverse('task1:shop'),
+        'recycle': reverse('task1:recycle'),
+        'contacts': reverse('task1:contacts'),
+        'contact': contact
+
+    }
+    return render(request, 'contacts.html', context)

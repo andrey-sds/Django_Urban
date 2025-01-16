@@ -1,0 +1,22 @@
+{% extends "menu.html" %}
+
+{% block pagename%} <center><h1>Контакты</h1> </center>
+{% endblock %}
+
+    {% include 'menu.html' %}
+{% block content %}
+    {% if contact %}
+    <ul>
+        {% for cont in contact %}
+        <li>
+            <b>{{ cont.title|upper }}</b>
+            <p>{{ cont.address }} </p>
+
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% endif %}
+
+    {{ block.super }}
+{% endblock %}
